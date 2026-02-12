@@ -24,3 +24,6 @@ This portfolio was built using:
 
 ---
 *Thanks for visiting! Feel free to star ⭐ this repository if you find it interesting.*
+## Copyright
+© 2026 Chanuka. All Rights Reserved.
+No part of this code may be reproduced, distributed, or transmitted in any form or by any means without the prior written permission of the copyright owner.
