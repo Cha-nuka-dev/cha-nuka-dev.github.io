@@ -92,7 +92,7 @@ section {
 
 /* The Navbar is the Liquid Pill */
 .navbar {
-    position: relative;
+    position: fixed;
     top: 2rem;
     left: 0;
     width: 100%;
@@ -1511,6 +1511,7 @@ section {
     }
 
 }
+
 
 
 
