@@ -102,9 +102,19 @@ section {
     align-items: center;
     z-index: 100;
     pointer-events: none;
-    
+}
    
-    
+    .navbara {
+    position: fixed;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 100;
+    pointer-events: none;
     
     /*position: relative;
     background: rgba(255, 255, 255, 0.2);
@@ -1511,6 +1521,7 @@ section {
     }
 
 }
+
 
 
 
