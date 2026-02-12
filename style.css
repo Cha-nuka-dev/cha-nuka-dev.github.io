@@ -93,12 +93,12 @@ section {
 /* The Navbar is the Liquid Pill */
 .navbar {
     position: fixed;
-    top: 2rem;
+    top: 5rem;
     left: 0;
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 3rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     align-items: center;
     z-index: 100;
     pointer-events: none;
@@ -1511,6 +1511,7 @@ section {
     }
 
 }
+
 
 
 
