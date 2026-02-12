@@ -16,7 +16,7 @@ I am an **Electronics & Telecommunication Engineering** undergraduate following 
 This portfolio was built using:
 * HTML5 & CSS3
 * JavaScript
-* (Add any other frameworks here, e.g., Bootstrap, React, etc.)
+
 
 ## 📫 Connect with Me
 * **LinkedIn:** www.linkedin.com/in/chanukajayasooriya
