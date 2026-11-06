@@ -712,6 +712,19 @@
         .ach-body { padding: 24px; }
     }
 
+    /* Research publication */
+    #publications { scroll-margin-top: 100px; }
+    .publication-card { max-width: 860px; margin: 0 auto; padding: clamp(24px, 5vw, 44px); background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-top: 4px solid var(--accent); border-radius: 22px; box-shadow: 0 6px 28px rgba(0,0,0,0.06); }
+    .publication-card h3 { font-family: var(--ff-serif); font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.2; margin-bottom: 18px; }
+    .publication-authors, .publication-venue { font-size: 0.84rem; line-height: 1.8; color: var(--ink2); margin-bottom: 12px; }
+    .publication-summary { font-size: 0.9rem; line-height: 1.8; color: var(--ink2); margin: 20px 0; }
+    .publication-details { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.78rem; color: var(--ink2); margin-bottom: 24px; }
+    @media (min-width: 641px) and (max-width: 1200px) {
+        .header { padding-left: 20px; padding-right: 20px; }
+        .navbar .nav-pill { gap: 14px; padding-left: 18px; padding-right: 18px; }
+        .navbar a { font-size: 0.78rem; }
+    }
+
     /* ══════════════════════════════════════════
        CONTACT
     ══════════════════════════════════════════ */
@@ -1056,6 +1069,7 @@
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
                 <a href="#achievements">Achievements</a>
+                <a href="#publications">Research</a>
                 <a href="news.html">සිංහල Tech News</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -1529,6 +1543,27 @@
             </div>
 
         </div>
+    </section>
+
+    <!-- ══ RESEARCH & PUBLICATIONS ══ -->
+    <section id="publications" aria-labelledby="publications-title">
+        <h2 class="heading" id="publications-title">Research &amp; <span>Publications</span></h2>
+        <article class="publication-card" data-sr>
+            <div class="ach-meta">
+                <span class="ach-badge gold"><i class="fas fa-book-open" aria-hidden="true"></i> Conference Publication</span>
+                <span class="ach-date"><time datetime="2026-11-05">5 November 2026</time></span>
+            </div>
+            <h3>TerraBOT: Enhanced Modular Platform with On-Device AI for Precision Agriculture</h3>
+            <p class="publication-authors"><strong>Chanuka Jayasooriya</strong>, Pasandul Kasthuri, Ravishan Hapukotuwa, Thosantha Thirandi, Heshadi Gayasha, and A W C K Atugoda</p>
+            <p class="publication-venue"><em>Proceedings of the 5th International Research Conference, Institute of Technology, University of Moratuwa (ITUMIRC 2026)</em></p>
+            <p class="publication-summary">First author, corresponding author, and presenter of research on TerraBOT, a modular precision-agriculture platform combining dual ESP32-S3 controllers, on-device AI, and interchangeable weeding and fertilising modules. Presented at ITUMIRC 2026 on 5 November 2026.</p>
+            <div class="publication-details">
+                <span>Pages 142–148</span>
+                <span>Paper ID 27</span>
+                <span>ISSN 2773-7055</span>
+            </div>
+            <a href="https://www.irc.itum.mrt.ac.lk/" target="_blank" rel="noopener noreferrer" class="ach-btn">Conference Website <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
     </section>
 
     <!-- ══ CONTACT ══ -->
