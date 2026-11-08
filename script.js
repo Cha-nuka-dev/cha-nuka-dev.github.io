@@ -7,11 +7,28 @@
 const menuIcon = document.querySelector('#menu-icon');
 const navbar   = document.querySelector('.navbar');
 
-if (menuIcon) {
-    menuIcon.onclick = () => {
-        menuIcon.classList.toggle('open');
-        navbar.classList.toggle('active');
-    };
+function setMenu(open, restoreFocus = false) {
+    if (!menuIcon || !navbar) return;
+    menuIcon.classList.toggle('open', open);
+    navbar.classList.toggle('active', open);
+    menuIcon.setAttribute('aria-expanded', String(open));
+    menuIcon.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    const icon = menuIcon.querySelector('i');
+    if (icon) icon.className = open ? 'fas fa-times' : 'fas fa-bars';
+    if (open) document.querySelector('.header')?.classList.remove('hide');
+    if (restoreFocus) menuIcon.focus();
+}
+if (menuIcon && navbar) {
+    menuIcon.addEventListener('click', () => setMenu(!navbar.classList.contains('active')));
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && navbar.classList.contains('active')) setMenu(false, true);
+    });
+    document.addEventListener('click', event => {
+        if (!navbar.contains(event.target) && !menuIcon.contains(event.target)) setMenu(false);
+    });
+    window.matchMedia('(min-width: 1101px)').addEventListener('change', event => {
+        if (event.matches) setMenu(false);
+    });
 }
 
 /* ── 2. ACTIVE NAV ON SCROLL ── */
@@ -54,8 +71,7 @@ navLinks.forEach(link => {
         updateIndicator(e.currentTarget);
 
         /* close mobile menu */
-        navbar.classList.remove('active');
-        menuIcon && menuIcon.classList.remove('open');
+        setMenu(false);
     });
 });
 
@@ -73,7 +89,7 @@ const srObserver = new IntersectionObserver((entries) => {
 srElements.forEach(el => srObserver.observe(el));
 
 /* ── 4. TYPED.JS ── */
-if (typeof Typed !== 'undefined') {
+if (typeof Typed !== 'undefined' && document.querySelector('.multiple-text') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     new Typed('.multiple-text', {
         strings: [
             'Electronic Engineering Undergraduate',

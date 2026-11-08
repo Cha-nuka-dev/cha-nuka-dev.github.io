@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chanuka Sanesh Jayasooriya - Professional Portfolio | Undergraduate ITUM </title>
-    <link rel="icon" type="image/svg+xml" href="/img/logo.svg">
+    <link rel="icon" type="image/svg+xml" href="img/logo.svg">
     <meta name="description" content="Portfolio of Chanuka Sanesh Jayasooriya - Electronic and Telecommunication Engineering Undergraduate from colombo">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -366,7 +366,7 @@
     .about-img { position: relative; margin-top: 72px; }
     .about-img img {
         width: 100%; border-radius: var(--radius); aspect-ratio: 4/5; object-fit: cover;
-        filter: grayscale(18%); box-shadow: 0 24px 60px rgba(0,0,0,0.12);
+        object-position: center top; background: #e8e4dd; box-shadow: 0 24px 60px rgba(0,0,0,0.12);
     }
     .about-img::after {
         content: ''; position: absolute; bottom: -8px; right: -8px;
@@ -623,7 +623,9 @@
     ══════════════════════════════════════════ */
     .achievements { background: var(--bg2); text-align: center; }
     .achievements .heading { text-align: center; }
-    .achievement-container {
+    .research-publications { background: var(--bg); }
+    .research-publications .heading { text-align: center; }
+    .achievement-container, .publication-container {
         display: flex; flex-direction: column; gap: 28px; text-align: left; max-width: 860px; margin: 0 auto;
     }
 
@@ -674,6 +676,20 @@
     .ach-badge.gold  { border-color: #c8a95a; color: #8a6d1a; background: #fdf6e3; }
     .ach-badge.silver{ border-color: #9b9b9b; color: #555;    background: #f5f5f5; }
     .ach-badge.finalist { border-color: #6366f1; color: #4338ca; background: #eef2ff; }
+    .ach-badge.research { border-color: #a8bcb0; color: #285540; background: #eef4ee; }
+    .research-cover {
+        display: flex; flex-direction: column; justify-content: space-between; gap: 36px;
+        padding: 36px; background: #e9ece3; color: #284536;
+        border-right: 1px solid rgba(0,0,0,0.06);
+    }
+    .research-cover img { width: 70px; height: auto; }
+    .research-cover-label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; }
+    .research-cover-name { font-family: var(--ff-sans); font-size: clamp(2.3rem, 6vw, 3.2rem); font-weight: 700; line-height: 1.12; margin: 10px 0; letter-spacing: -0.04em; }
+    .research-cover-event { font-size: 0.82rem; line-height: 1.6; max-width: 220px; }
+    .research-cover-foot { font-size: 0.72rem; letter-spacing: 0.04em; border-top: 1px solid #bac6b9; padding-top: 18px; }
+    .research-card .ach-desc { text-align: left; margin-bottom: 16px; }
+    .research-paper-title { font-size: 0.9rem; color: var(--ink); line-height: 1.65; margin: 0 0 14px; font-style: italic; }
+    .research-citation { font-size: 0.74rem; line-height: 1.6; color: var(--ink3); margin: 0 0 20px; }
     .ach-date {
         font-family: var(--ff-sans); font-size: 0.76rem;
         color: var(--ink3); font-weight: 400;
@@ -708,6 +724,7 @@
 
     @media (max-width: 760px) {
         .ach-card { grid-template-columns: 1fr; }
+        .research-cover { padding: 28px; gap: 24px; border-right: 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
         .ach-img img { min-height: 200px; height: 200px; }
         .ach-body { padding: 24px; }
     }
@@ -815,7 +832,7 @@
     .input-box { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
     .contact-form-wrap input[type="text"],
     .contact-form-wrap input[type="email"],
-    .contact-form-wrap input[type="number"],
+    .contact-form-wrap input[type="tel"],
     .contact-form-wrap textarea {
         width: 100%; padding: 13px 16px;
         background: var(--white); border: 1.5px solid rgba(0,0,0,0.11); border-radius: 10px;
@@ -1035,6 +1052,43 @@
         opacity: 1;
     }
 
+
+    /* Accessible controls and responsive navigation */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+        outline: 3px solid var(--accent2); outline-offset: 4px;
+    }
+    section[id] { scroll-margin-top: 92px; }
+    .menu-icon { background: none; border: 0; color: var(--ink); cursor: pointer; }
+    .menu-icon .nav-pill { min-width: 44px; min-height: 44px; justify-content: center; }
+    .contact-row-value { overflow-wrap: anywhere; }
+    .proj-card { cursor: default; }
+    .carousel-dot { border: 0; padding: 0; }
+    @media (max-width: 1100px) {
+        .header, .header.scrolled { padding: 12px 18px; }
+        .menu-icon { display: flex; }
+        .navbar { display: none; position: absolute; top: calc(100% + 8px); left: 18px; right: 18px; }
+        .navbar.active { display: block; }
+        .navbar .nav-pill, .header.scrolled .navbar .nav-pill {
+            padding: 12px; gap: 0; border-radius: 20px; flex-direction: column;
+            align-items: stretch; background: rgba(245,242,237,0.98);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.12); max-height: calc(100dvh - 100px); overflow-y: auto;
+        }
+        .navbar a, .header.scrolled .navbar a { padding: 13px 16px; font-size: 0.94rem; border-radius: 10px; }
+        .navbar a:hover, .navbar a.active { background: var(--bg2); }
+        .navbar a::after { display: none; }
+    }
+    @media (max-width: 640px) {
+        .hero { min-height: 680px; height: 100svh; }
+        .hero-badge { white-space: normal; flex-wrap: wrap; justify-content: center; }
+        .ach-footer { flex-wrap: wrap !important; }
+        .contact-form-wrap input, .contact-form-wrap textarea { font-size: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+        [data-sr] { opacity: 1; transform: none; }
+        #circuit-canvas { display: none; }
+    }
     </style>
 </head>
 
@@ -1049,22 +1103,21 @@
                 <a href="#hero" class="logo">#Cha-nuka-dev<span>.</span></a>
             </div>
         </nav>
-        <nav class="navbar">
+        <nav class="navbar" id="main-navigation" aria-label="Main navigation">
             <div class="nav-pill">
                 <a href="#hero" class="active">Home</a>
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
+                <a href="#research">Research</a>
                 <a href="#achievements">Achievements</a>
                 <a href="news.html">සිංහල Tech News</a>
                 <a href="#contact">Contact</a>
             </div>
         </nav>
-        <div class="menu-icon" id="menu-icon">
-            <div class="nav-pill" style="padding:10px 14px;">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
+        <button class="menu-icon" id="menu-icon" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Open navigation">
+            <span class="nav-pill"><i class="fas fa-bars" aria-hidden="true"></i></span>
+        </button>
     </header>
 
     <!-- ══ HERO ══ -->
@@ -1097,13 +1150,13 @@
         </div>
         <span class="multiple-text"></span>
         <div class="hero-action-bar">
-            <a href="img/cv.pdf" class="action-btn" download>Download CV</a>
+            <a href="mailto:23et0394@itum.mrt.ac.lk?subject=CV%20request" class="action-btn">Request CV</a>
             <a href="#contact" class="action-btn">Contact Info</a>
             <div class="action-divider"></div>
             <div class="action-socials">
-                <a href="https://github.com/Cha-nuka-dev" target="_blank" class="action-social-btn"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/chanukajayasooriya/" target="_blank" class="action-social-btn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.youtube.com/@Formula1SL" target="_blank" class="action-social-btn"><i class="fab fa-youtube"></i></a>
+                <a href="https://github.com/Cha-nuka-dev" target="_blank" rel="noopener noreferrer" class="action-social-btn" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/chanukajayasooriya/" target="_blank" rel="noopener noreferrer" class="action-social-btn" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/@Formula1SL" target="_blank" rel="noopener noreferrer" class="action-social-btn" aria-label="YouTube channel"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </section>
@@ -1113,7 +1166,7 @@
 
         <!-- Profile image -->
         <div class="about-img" data-sr>
-            <img src="img/profile.png" alt="Chanuka Sanesh">
+            <img src="img/portfolio-portrait.webp" alt="Chanuka Sanesh">
         </div>
 
         <!-- Right column -->
@@ -1228,7 +1281,7 @@
 
             <!-- Bio text -->
             <p>I completed my secondary education at Niwattaka Chetiya M.V., Anuradhapura, focusing on the Physical Science stream for my Advanced Levels in 2022. I am currently pursuing a National Diploma in Technology (NDT) in Electrical and Electronic Engineering at the Institute of Technology, University of Moratuwa.<br><br>Driven by a passion for AI, Robotics, and Machine Learning, I actively refine my technical skills and problem-solving abilities through hands-on personal projects.</p>
-            <a href="https://www.linkedin.com/in/chanukajayasooriya/" class="btn" target="_blank">Read More</a>
+            <a href="https://www.linkedin.com/in/chanukajayasooriya/" class="btn" target="_blank" rel="noopener noreferrer">Read More</a>
 
         </div>
     </section>
@@ -1364,8 +1417,7 @@
                             <h4>AgriBot-1</h4>
                             <p>Precision agriculture robot on ESP32-S3 with FreeRTOS, NPK soil sensing and auto liquid dosing.</p>
                             <div class="proj-card-actions">
-                                <a href="/card/agribot1.html" class="proj-action-btn" title="View Project"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="#" class="proj-action-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="card/agribot1.html" class="proj-action-btn" title="View Project" aria-label="View project"><i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1378,10 +1430,9 @@
                         </div>
                         <div class="proj-card-body">
                             <h4>PCB Design Project</h4>
-                            <p>Designed a custom multi-layer PCB for high-frequency signal processing using Altium Designer.</p>
+                            <p>Schematic capture, PCB layout, routing, and prototyping using Altium Designer, KiCad, and Fusion 360.</p>
                             <div class="proj-card-actions">
-                                <a href="#" class="proj-action-btn" title="View Project"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="#" class="proj-action-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="#contact" class="proj-action-btn" title="Ask about this project" aria-label="Ask about this project"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1389,15 +1440,14 @@
                     <!-- Card 2 -->
                     <div class="proj-card">
                         <div class="proj-card-img">
-                            <img src="img/project2.jpg" alt="Autonomous Robot">
+                            <img src="img/project2.jpg" alt="PID Line-Following Robot">
                             <span class="proj-tag robotics">Robotics</span>
                         </div>
                         <div class="proj-card-body">
-                            <h4>Autonomous Robot</h4>
-                            <p>Developed a line-following and obstacle-avoiding robot using STM32 and custom sensor fusion.</p>
+                            <h4>PID Line-Following Robot</h4>
+                            <p>Led Team Fasterz in building a Raspberry Pi Pico line-following robot with PID control, a custom 7-sensor analog array, an analog multiplexer, and OLED diagnostics.</p>
                             <div class="proj-card-actions">
-                                <a href="https://www.linkedin.com/posts/chanukajayasooriya_vertex2025-robotics-raspberrypipico-activity-7406862981340418049-xldS" class="proj-action-btn" title="View Project" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="#" class="proj-action-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/posts/chanukajayasooriya_vertex2025-robotics-raspberrypipico-activity-7406862981340418049-xldS" class="proj-action-btn" title="View Project" aria-label="View project" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1412,15 +1462,22 @@
                             <h4>IoT Home Automation</h4>
                             <p>Smart home system controlling appliances via a web interface built on ESP32 and MQTT.</p>
                             <div class="proj-card-actions">
-                                <a href="#" class="proj-action-btn" title="View Project"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="#" class="proj-action-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="#contact" class="proj-action-btn" title="Ask about this project" aria-label="Ask about this project"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
 
-                   
 
-                </div><!-- /track -->
+
+                <div class="proj-card">
+ <div class="proj-card-img" style="display:grid;place-items:center;background:#e5ece2;min-height:230px;padding:24px"><strong>Automated Greenhouse Cooling</strong><span class="proj-tag iot">Automation</span></div>
+ <div class="proj-card-body"><h4>Automated Greenhouse Cooling</h4><p>Built a PID-controlled misting system using a TMCON FT803 controller and J-type thermocouple, with pump switching, low-water protection, and an external control panel.</p><div class="proj-card-actions"><a class="proj-action-btn" href="#contact">Ask about project</a></div></div>
+ </div>
+ <div class="proj-card">
+ <div class="proj-card-img" style="display:grid;place-items:center;background:#e5ece2;min-height:230px;padding:24px"><strong>Vegetable Price Analytics Dashboard</strong><span class="proj-tag iot">Data Analytics</span></div>
+ <div class="proj-card-body"><h4>Vegetable Price Analytics Dashboard</h4><p>Developed a dashboard to explore Thambuttegama Economic Centre vegetable prices and compare historical trends from daily price images.</p><div class="proj-card-actions"><a class="proj-action-btn" href="https://thambuttegama-vegetable-price-analy.vercel.app/">Open dashboard</a></div></div>
+ </div>
+ </div><!-- /track -->
             </div><!-- /track-outer -->
 
             <!-- Next arrow -->
@@ -1434,11 +1491,41 @@
 
     </section>
 
+    <!-- ══ RESEARCH & PUBLICATIONS ══ -->
+    <section class="research-publications" id="research" aria-labelledby="research-heading">
+        <h2 class="heading" id="research-heading">Research &amp; <span>Publications</span></h2>
+        <div class="publication-container">
+            <article class="ach-card research-card" data-sr aria-labelledby="research-publication-title">
+                <div class="research-cover">
+                    <img src="img/itum.svg" alt="Institute of Technology, University of Moratuwa" loading="lazy">
+                    <div>
+                        <div class="research-cover-label">Research &amp; Innovation</div>
+                        <div class="research-cover-name">ITUMIRC<br>2026</div>
+                        <div class="research-cover-event">5th International Research Conference</div>
+                    </div>
+                    <div class="research-cover-foot">Institute of Technology<br>University of Moratuwa</div>
+                </div>
+                <div class="ach-body">
+                    <div class="ach-meta">
+                        <span class="ach-badge research"><i class="fas fa-book-open" aria-hidden="true"></i> Research Publication</span>
+                        <time class="ach-date" datetime="2026-11-05">5 November 2026</time>
+                    </div>
+                    <h3 class="ach-title" id="research-publication-title">First Author &amp; Presenter — ITUMIRC 2026</h3>
+                    <p class="research-paper-title">TerraBOT: Enhanced Modular Platform with On-Device AI for Precision Agriculture</p>
+                    <p class="ach-desc">Presented our research on a modular robotic platform with on-device AI for precision agriculture at ITUMIRC 2026. Published in the conference proceedings as first and corresponding author.</p>
+                    <p class="research-citation">Proceedings of the 5th International Research Conference, Institute of Technology, University of Moratuwa · pp. 142–148 · ISSN 2773-7055</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
     <!-- ══ ACHIEVEMENTS ══ -->
     <section class="achievements" id="achievements">
         <h2 class="heading">My <span>Achievements</span></h2>
 
         <div class="achievement-container">
+
+
 
             <!-- ─── Achievement 1 ─── -->
             <!-- To add more achievements: copy the entire .ach-card block below and paste it after, then edit the content -->
@@ -1454,12 +1541,12 @@
                     <div class="ach-title">Winners of the GridX: Sri Lanka's 1st STEM Motorsport Event</div>
                     <p class="ach-desc">Winner of the Vanguard Racing Team at the inaugural GridX STEM Motorsport Challenge. Made history showcasing precision engineering, rapid prototyping, and teamwork on the track against top undergraduate teams.</p>
                     <div class="ach-footer" style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; padding-top:16px; border-top:1px solid rgba(0,0,0,0.06); flex-wrap:nowrap; gap:14px;">
-                        <a href="https://itum.mrt.ac.lk/node/1327" target="_blank" class="ach-btn" style="flex-shrink:0;">
+                        <a href="https://itum.mrt.ac.lk/node/1327" target="_blank" rel="noopener noreferrer" class="ach-btn" style="flex-shrink:0;">
                             View ITUM Blog Post
                         </a>
                         <div class="ach-logos" style="display:flex; flex-wrap:nowrap; align-items:center; gap:14px;">
                             <div class="ach-logo" style="flex-shrink:0;">
-                                <img src="/img/itum.svg" alt="ITUM" width="60" style="height:36px; object-fit:contain;">
+                                <img src="img/itum.svg" alt="ITUM" width="60" style="height:36px; object-fit:contain;">
                             </div>
                         </div>
                     </div>
@@ -1478,19 +1565,17 @@
                     </div>
                     <div class="ach-title">IIESL INCO 2026 - robotics competition </div>
                     <p class="ach-desc">Organized by the Institution of Incorporated Engineers, Sri Lanka,
-                        our journey to revolutionize weed management through autonomous mapping and multi-spectral sensing reaches 
+                        our journey to revolutionize weed management through autonomous mapping and multi-spectral sensing reaches
                         the final stage. </p>
                     <div class="ach-footer" style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; padding-top:16px; border-top:1px solid rgba(0,0,0,0.06); flex-wrap:nowrap; gap:14px;">
-                        <a href="#" target="_blank" class="ach-btn" style="flex-shrink:0;">
-                            <i class="fab fa-linkedin-in"></i> View LinkedIn Post
-                        </a>
-                         
+                        <a href="#contact" class="ach-btn" style="flex-shrink:0;">Ask About This Project</a>
+
                         <div class="ach-logos" style="display:flex; flex-wrap:nowrap; align-items:center; gap:14px;">
                             <div class="ach-logo" style="flex-shrink:0;">
-                                <img src="/img/itum.svg" alt="ITUM" width="60" style="height:36px; object-fit:contain;">
+                                <img src="img/itum.svg" alt="ITUM" width="60" style="height:36px; object-fit:contain;">
                             </div>
                             <div class="ach-logo" style="flex-shrink:0;">
-                                <img src="/img/iiesl.png" alt="IIESL" width="36" style="height:36px; object-fit:contain;">
+                                <img src="img/iiesl.png" alt="IIESL" width="36" style="height:36px; object-fit:contain;">
                             </div>
                         </div>
                     </div>
@@ -1499,7 +1584,7 @@
 
 
 
-            
+
             <!-- ─── Achievement 3 — ADD YOUR NEXT ACHIEVEMENT HERE ─── -->
             <div class="ach-card" data-sr style="transition-delay:0.12s">
                 <div class="ach-img">
@@ -1514,15 +1599,15 @@
                     <p class="ach-desc"> We are team FasterZ, successfully cleared the initial rounds and reached the Top 10 finalist
                     Vertex is a High-speed line-following competition organized by NDT ET Community and NDT student union. </p>
                     <div class="ach-footer" style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; padding-top:16px; border-top:1px solid rgba(0,0,0,0.06); flex-wrap:nowrap; gap:14px;">
-                        <a href="https://www.linkedin.com/posts/chanukajayasooriya_vertex2025-robotics-raspberrypipico-activity-7406862981340418049-xldS?utm_source=share&utm_medium=member_desktop&rcm=ACoAADYSAakB4A1K3EQdF87IyyRyLbsHCr6PRi4" 
-                            target="_blank" class="ach-btn" style="flex-shrink:0;">
+                        <a href="https://www.linkedin.com/posts/chanukajayasooriya_vertex2025-robotics-raspberrypipico-activity-7406862981340418049-xldS?utm_source=share&utm_medium=member_desktop&rcm=ACoAADYSAakB4A1K3EQdF87IyyRyLbsHCr6PRi4"
+                            target="_blank" rel="noopener noreferrer" class="ach-btn" style="flex-shrink:0;">
                             <i class="fab fa-linkedin-in"></i> View LinkedIn Post
                         </a>
                         <div class="ach-logos" style="display:flex; flex-wrap:nowrap; align-items:center; gap:14px;">
                             <div class="ach-logo" style="flex-shrink:0;">
-                                <img src="/img/itum.svg" alt="ITUM" width="60" style="height:36px; object-fit:contain;">
+                                <img src="img/itum.svg" alt="ITUM" width="60" style="height:36px; object-fit:contain;">
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -1575,24 +1660,24 @@
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-row-text">
                             <span class="contact-row-label">Email</span>
-                            <span class="contact-row-value">chanukasanesh46@gmail.com</span>
+                            <span class="contact-row-value">23et0394@itum.mrt.ac.lk</span>
                         </div>
                     </a>
-                    <a href="https://www.linkedin.com/in/chanukajayasooriya/" target="_blank" class="contact-row">
+                    <a href="https://www.linkedin.com/in/chanukajayasooriya/" target="_blank" rel="noopener noreferrer" class="contact-row">
                         <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
                         <div class="contact-row-text">
                             <span class="contact-row-label">LinkedIn</span>
                             <span class="contact-row-value">connect</span>
                         </div>
                     </a>
-                    <a href="https://www.facebook.com/chanukashanesh46" target="_blank" class="contact-row">
+                    <a href="https://www.facebook.com/chanukashanesh46" target="_blank" rel="noopener noreferrer" class="contact-row">
                         <div class="contact-icon"><i class="fab fa-facebook-f"></i></div>
                         <div class="contact-row-text">
                             <span class="contact-row-label">Facebook</span>
                             <span class="contact-row-value">@chanukashanesh46</span>
                         </div>
                     </a>
-                    <a href="https://wa.me/94769973354" target="_blank" class="contact-row">
+                    <a href="https://wa.me/94769973354" target="_blank" rel="noopener noreferrer" class="contact-row">
                         <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
                         <div class="contact-row-text">
                             <span class="contact-row-label">WhatsApp</span>
@@ -1655,15 +1740,15 @@
         <div class="contact-form-wrap" data-sr>
             <form action="https://formspree.io/f/mqedpzbz" method="POST">
                 <div class="input-box">
-                    <input type="text"   name="name"    placeholder="Full Name" required>
-                    <input type="email"  name="email"   placeholder="Email Address" required>
+                    <input type="text"   name="name" aria-label="Full Name"    placeholder="Full Name" required>
+                    <input type="email"  name="email" aria-label="Email Address"   placeholder="Email Address" required>
                 </div>
                 <div class="input-box">
-                    <input type="number" name="mobile"  placeholder="Mobile Number">
-                    <input type="text"   name="subject" placeholder="Email Subject">
+                    <input type="tel" name="mobile" placeholder="Mobile Number" aria-label="Mobile Number" autocomplete="tel">
+                    <input type="text"   name="subject" aria-label="Email Subject" placeholder="Email Subject">
                 </div>
                 <input type="hidden" name="_subject" value="New submission from Portfolio!">
-                <textarea name="message" placeholder="Your Message" required></textarea>
+                <textarea name="message" aria-label="Your Message" placeholder="Your Message" required></textarea>
                 <input type="submit" value="Send Message">
             </form>
         </div>
@@ -1674,16 +1759,16 @@
     <footer class="premium-footer">
         <div class="footer-cta">
             <h2>Have an Idea?</h2>
-            <a href="/cdn-cgi/l/email-protection#2c1e1f49581c1f15186c4558594102415e58024d4f024047" class="footer-btn">Let's Build It <i class="fas fa-arrow-right"></i></a>
+            <a href="mailto:23et0394@itum.mrt.ac.lk" class="footer-btn">Let's Build It <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="footer-content">
             <div class="footer-column brand-col">
                 <h3>ChanuX46<span>.</span></h3>
                 <p>Engineering the future with precision and code.</p>
                 <div class="footer-socials">
-                    <a href="https://github.com/Cha-nuka-dev" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/chanukajayasooriya/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.youtube.com/@Formula1SL" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://github.com/Cha-nuka-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/chanukajayasooriya/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@Formula1SL" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-column">
@@ -1692,22 +1777,23 @@
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
+                <a href="#research">Research &amp; Publications</a>
             </div>
 
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="year"></span> Chanuka Sanesh Jayasooriya.All rights reserved.</p>
-            <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+            <p>&copy; <span id="year"></span> Chanuka Sanesh Jayasooriya. All rights reserved.</p>
+
         </div>
     </footer>
 
 
     <!-- Typed JS -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <!-- Main Script (optional external) -->
     <script src="script.js"></script>
 
-    <!-- ── INLINE FALLBACK: scroll reveal + year ── 
+    <!-- ── INLINE FALLBACK: scroll reveal + year ──
          Runs even if script.js is missing                -->
     <script>
     (function () {
@@ -1794,7 +1880,9 @@
             dotsWrap.innerHTML = '';
             const total = maxIndex() + 1;
             for (let i = 0; i < total; i++) {
-                const d = document.createElement('div');
+                const d = document.createElement('button');
+                d.type = 'button';
+                d.setAttribute('aria-label', 'Show project position ' + (i + 1));
                 d.className = 'carousel-dot' + (i === current ? ' active' : '');
                 d.addEventListener('click', () => goTo(i));
                 dotsWrap.appendChild(d);
@@ -1804,6 +1892,7 @@
         function updateDots() {
             dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
                 d.classList.toggle('active', i === current);
+                d.setAttribute('aria-pressed', String(i === current));
             });
         }
 
@@ -1811,7 +1900,9 @@
             current = Math.max(0, Math.min(index, maxIndex()));
             track.style.transform = `translateX(-${current * getCardWidth()}px)`;
             prevBtn.classList.toggle('disabled', current === 0);
+            prevBtn.disabled = current === 0;
             nextBtn.classList.toggle('disabled', current >= maxIndex());
+            nextBtn.disabled = current >= maxIndex();
             updateDots();
         }
 
@@ -1869,163 +1960,6 @@
     </script>
 
 
-    <!-- ══ CIRCUIT TORCH CANVAS ══ -->
-    <canvas id="circuit-canvas"></canvas>
-
-    <script>
-    (function () {
-        const canvas = document.getElementById('circuit-canvas');
-        const ctx    = canvas.getContext('2d');
-
-        let W, H;
-        let mouseX = -999, mouseY = -999;
-        const RADIUS   = 160;   /* torch spotlight radius */
-        const SEGMENTS = 280;   /* number of circuit trace segments */
-
-        /* ── Generate circuit path network ── */
-        let nodes = [], edges = [];
-
-        function generateCircuit() {
-            nodes = [];
-            edges = [];
-
-            const cols = Math.ceil(W / 90) + 2;
-            const rows = Math.ceil(H / 90) + 2;
-
-            /* Grid nodes with jitter */
-            for (let r = 0; r < rows; r++) {
-                for (let c = 0; c < cols; c++) {
-                    nodes.push({
-                        x: c * 90 - 10 + (Math.random() - 0.5) * 30,
-                        y: r * 90 - 10 + (Math.random() - 0.5) * 30,
-                    });
-                }
-            }
-
-            /* Connect nearby nodes with L-shaped traces */
-            const cols2 = cols;
-            for (let i = 0; i < nodes.length; i++) {
-                const n = nodes[i];
-                /* right neighbour */
-                if (i % cols2 < cols2 - 1) addEdge(n, nodes[i + 1]);
-                /* bottom neighbour */
-                if (i + cols2 < nodes.length) addEdge(n, nodes[i + cols2]);
-                /* diagonal (skip some for sparsity) */
-                if (Math.random() < 0.18 && i + cols2 + 1 < nodes.length) {
-                    addEdge(n, nodes[i + cols2 + 1]);
-                }
-            }
-
-            /* Extra random long-range traces */
-            for (let k = 0; k < SEGMENTS; k++) {
-                const a = nodes[Math.floor(Math.random() * nodes.length)];
-                const b = nodes[Math.floor(Math.random() * nodes.length)];
-                if (a !== b) addEdge(a, b, true);
-            }
-        }
-
-        function addEdge(a, b, longRange) {
-            if (longRange) {
-                const dist = Math.hypot(b.x - a.x, b.y - a.y);
-                if (dist > 260) return;   /* skip very long */
-            }
-            edges.push({ a, b });
-        }
-
-        function resize() {
-            W = canvas.width  = window.innerWidth;
-            H = canvas.height = window.innerHeight;
-            generateCircuit();
-        }
-
-        /* ── Draw ── */
-        function draw() {
-            ctx.clearRect(0, 0, W, H);
-
-            /* --- Draw full circuit onto off-screen buffer --- */
-            /* We'll use a clipping trick: draw circuit in accent color,
-               then mask with radial gradient around mouse */
-
-            /* 1. Save state, set clip to spotlight circle */
-            ctx.save();
-
-            /* Radial gradient mask — feathered edge */
-            const grd = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, RADIUS);
-            grd.addColorStop(0,    'rgba(0,0,0,1)');
-            grd.addColorStop(0.6,  'rgba(0,0,0,0.85)');
-            grd.addColorStop(0.88, 'rgba(0,0,0,0.2)');
-            grd.addColorStop(1,    'rgba(0,0,0,0)');
-
-            /* Draw edges */
-            edges.forEach(({ a, b }) => {
-                /* L-shaped path: go horizontal then vertical */
-                const mx = b.x; /* elbow point */
-                const my = a.y;
-
-                ctx.beginPath();
-                ctx.moveTo(a.x, a.y);
-                ctx.lineTo(mx,  my);
-                ctx.lineTo(b.x, b.y);
-
-                ctx.strokeStyle = 'rgba(60,120,80,0.55)';
-                ctx.lineWidth   = 0.9;
-                ctx.stroke();
-            });
-
-            /* Dots at nodes */
-            nodes.forEach(n => {
-                ctx.beginPath();
-                ctx.arc(n.x, n.y, 2.2, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(60,130,80,0.5)';
-                ctx.fill();
-            });
-
-            /* Small via circles at random nodes */
-            nodes.forEach((n, i) => {
-                if (i % 7 === 0) {
-                    ctx.beginPath();
-                    ctx.arc(n.x, n.y, 5, 0, Math.PI * 2);
-                    ctx.strokeStyle = 'rgba(60,130,80,0.45)';
-                    ctx.lineWidth = 1.2;
-                    ctx.stroke();
-                }
-            });
-
-            ctx.restore();
-
-            /* 2. Apply spotlight mask using destination-in on a second pass */
-            /* We need to use a temp canvas approach for proper masking */
-            ctx.globalCompositeOperation = 'destination-in';
-            ctx.fillStyle = grd;
-            ctx.fillRect(0, 0, W, H);
-            ctx.globalCompositeOperation = 'source-over';
-
-            requestAnimationFrame(draw);
-        }
-
-        /* ── Track mouse & touch ── */
-        window.addEventListener('mousemove', e => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        window.addEventListener('touchmove', e => {
-            mouseX = e.touches[0].clientX;
-            mouseY = e.touches[0].clientY;
-        }, { passive: true });
-
-        /* Hide when mouse leaves window */
-        document.addEventListener('mouseleave', () => {
-            mouseX = -999; mouseY = -999;
-        });
-
-        resize();
-        draw();
-        window.addEventListener('resize', resize);
-    })();
-    </script>
-
-
     <!-- ══ CIRCUIT SPOTLIGHT ══ -->
     <canvas id="circuit-canvas" style="
         position:fixed; inset:0; width:100%; height:100%;
@@ -2034,7 +1968,11 @@
     <script>
     (function(){
         const canvas = document.getElementById('circuit-canvas');
-        const ctx    = canvas.getContext('2d');
+        if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        let drawFrame = 0;
+        function requestDraw() { if (!drawFrame) drawFrame = requestAnimationFrame(draw); }
 
         const SPOT_R = 55;
         const INK    = '42,38,30';
@@ -2045,7 +1983,7 @@
         /* Selectors for all content that should BLOCK the effect */
         const BLOCK_SEL = [
             '.bento-card', '.proj-card', '.about-img', '.about-content',
-            '.achievement-row', 'form', '.navbara', '.navbar',
+            '.ach-card', 'form', '.navbara', '.navbar', '.menu-icon',
             '.hero-content', '.hero-action-bar', '.back-to-top',
             '.footer-content', '.footer-cta', '.footer-bottom',
             'h2', 'h3', 'h4', 'p'
@@ -2103,8 +2041,9 @@
         }
 
         function draw(){
+            drawFrame = 0;
             ctx.clearRect(0,0,W,H);
-            if(!active){ requestAnimationFrame(draw); return; }
+            if(!active) return;
 
             const margin = SPOT_R + 50;
 
@@ -2165,19 +2104,20 @@
                 });
             } catch(e){}
 
-            requestAnimationFrame(draw);
         }
 
         window.addEventListener('mousemove', e => {
             mx=e.clientX; my=e.clientY; active=true;
             clearTimeout(hideTimer);
-            hideTimer=setTimeout(()=>{ active=false; },1600);
+            requestDraw();
+            hideTimer=setTimeout(()=>{ active=false; requestDraw(); },1600);
         },{ passive:true });
-        window.addEventListener('mouseleave',()=>{ active=false; });
+        document.addEventListener('mouseleave',()=>{ active=false; requestDraw(); });
 
         build();
         draw();
-        window.addEventListener('resize', build);
+        window.addEventListener('resize', () => { build(); requestDraw(); });
+        window.addEventListener('scroll', requestDraw, { passive: true });
     })();
     </script>
 
@@ -2194,7 +2134,9 @@
 
             header.classList.toggle('scrolled', y > 60);
 
-            if(y > 100){
+            if(document.querySelector('.navbar.active')) {
+                header.classList.remove('hide');
+            } else if(y > 100){
                 if(diff > 4)       header.classList.add('hide');
                 else if(diff < -4) header.classList.remove('hide');
             } else {
